@@ -31,6 +31,7 @@ public class SourceCodePanel extends JPanel implements Observer {
                 Set<Edge> edges = ((GraphDataSource) o).getEdges(vertex);
                 sourceCode.append(this.getFormattedVertex(vertex, edges)).append(System.lineSeparator());
             });
+            this.sourceCodeTextArea.setText(sourceCode.toString());
         }
     }
 
