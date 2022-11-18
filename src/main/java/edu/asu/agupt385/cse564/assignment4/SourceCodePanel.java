@@ -25,8 +25,12 @@ public class SourceCodePanel extends JPanel implements Observer {
     @Override
     public void update(Observable o, Object arg) {
         if (o instanceof GraphDataSource) {
+            StringBuilder sourceCode = new StringBuilder();
             Set<Vertex> vertices = ((GraphDataSource) o).getAllVertices();
-
+            vertices.forEach(vertex -> {
+                Set<Edge> edges = ((GraphDataSource) o).getEdges(vertex);
+                sourceCode.append(this.getFormattedVertex(vertex, edges)).append(System.lineSeparator());
+            });
         }
     }
 
