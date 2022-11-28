@@ -1,8 +1,10 @@
 package edu.asu.agupt385.cse564.assignment4;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Observable;
+import java.util.Optional;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentSkipListSet;
@@ -48,6 +50,16 @@ public class GraphDataSource extends Observable {
         return graph.get(e.getSource()).contains(e);
     }
 
+    public Vertex getVertexByName(String vertexName) {
+        Optional<Vertex> v =
+                this.getAllVertices().stream().filter(vertex -> vertexName.equalsIgnoreCase(vertex.getName())).findFirst();
+        if (v.isPresent()) {
+            return v.get();
+        } else {
+            return null;
+        }
+    }
+
     public Set<Vertex> getAllVertices() {
         return new HashSet<>(graph.keySet());
     }
@@ -57,6 +69,6 @@ public class GraphDataSource extends Observable {
     }
 
     public Set<Edge> getAllEdges() {
-        return graph.values().stream().flatMap(adjacentEdges -> adjacentEdges.stream()).collect(Collectors.toSet());
+        return graph.values().stream().flatMap(Collection::stream).collect(Collectors.toSet());
     }
 }

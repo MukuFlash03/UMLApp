@@ -5,7 +5,7 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import java.util.Objects;
 
-public class Vertex {
+public class Vertex implements Comparable<Vertex> {
     private final String name;
     private final Rectangle bounds;
 
@@ -58,5 +58,10 @@ public class Vertex {
 
     public void draw(Graphics g) {
 
+    }
+
+    @Override
+    public int compareTo(Vertex o) {
+        return this.name.compareTo(o.getName());
     }
 }

@@ -1,0 +1,9 @@
+digraph {
+  A [label=A, shape=box, color=black, fillcolor=yellow, pos="100, 200", style=filled]
+  B [label=B, shape=box, color=black, fillcolor=yellow, pos="100, 300", style=filled]
+  C [label=C, shape=box, color=black, fillcolor=yellow, pos="100, 400", style=filled]
+
+  A -> B [style=solid, arrowhead=vee]
+  B -> C [style=dashed, arrowhead=onormal]
+  C -> A [style=solid, dir=both, arrowtail=diamond, arrowhead=none]
+}

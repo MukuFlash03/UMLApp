@@ -1,8 +1,9 @@
 package edu.asu.agupt385.cse564.assignment4;
 
+import java.util.Comparator;
 import java.util.Objects;
 
-public class Edge {
+public class Edge implements Comparable<Edge> {
     private Vertex source;
     private Vertex destination;
     private RelationshipType relationshipType;
@@ -37,5 +38,12 @@ public class Edge {
     @Override
     public int hashCode() {
         return Objects.hash(source, destination);
+    }
+
+    @Override
+    public int compareTo(Edge o) {
+        return Comparator.comparing(Edge::getSource)
+                .thenComparing(Edge::getDestination)
+                .compare(this, o);
     }
 }
