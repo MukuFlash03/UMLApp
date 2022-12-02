@@ -34,12 +34,15 @@ public class GraphDataSource extends Observable {
         graph.put(v, new ConcurrentSkipListSet<>());
         this.setChanged();
         this.notifyObservers();
+        StatusLogger.getInstance().setMessage(v.getName() + " class created!!");
     }
 
     public void addEdge(Edge e) {
         graph.get(e.getSource()).add(e);
         this.setChanged();
         this.notifyObservers();
+        StatusLogger.getInstance().setMessage(e.getRelationshipType() + " " +
+                "relationship added in between!!");
     }
 
     public boolean hasVertex(Vertex v) {
@@ -70,5 +73,15 @@ public class GraphDataSource extends Observable {
 
     public Set<Edge> getAllEdges() {
         return graph.values().stream().flatMap(Collection::stream).collect(Collectors.toSet());
+    }
+
+    public int getVertexCount() {
+        return graph.size();
+    }
+
+    public void deleteAll(){
+        graph.clear();
+        this.setChanged();
+        this.notifyObservers();
     }
 }

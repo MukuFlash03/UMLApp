@@ -12,14 +12,14 @@ import java.util.stream.Collectors;
 
 public class SourceCodePanel extends JPanel implements Observer {
 
-    private JTextArea sourceCodeTextArea;
+    private final JTextArea sourceCodeTextArea;
 
     SourceCodePanel() {
-        this.sourceCodeTextArea = new JTextArea();
-        this.add(this.sourceCodeTextArea);
+        this.sourceCodeTextArea = new JTextArea(50,50);
         this.add(new JScrollPane(this.sourceCodeTextArea,
-                JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
-                JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED));
+                JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+                JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS
+                 ));
     }
 
     @Override
@@ -51,13 +51,26 @@ public class SourceCodePanel extends JPanel implements Observer {
             }
         });
 
-        classSourceCode.append("class " + vertex.getName() + " extends ");
-        classSourceCode.append(classDeclarationRelations.stream().collect(Collectors.joining(",")));
+        classSourceCode.append("class " + vertex.getName());
+        if(classDeclarationRelations.size() > 0){
+            classSourceCode.append(" extends ");
+            classSourceCode.append(classDeclarationRelations.stream().collect(Collectors.joining(",")));
+        }
         classSourceCode.append(" {").append(System.lineSeparator());
-        classSourceCode.append(instanceScopeRelations.stream().collect(Collectors.joining(System.lineSeparator())));
+        if(instanceScopeRelations.size() > 0){
+            for (String s : instanceScopeRelations){
+                classSourceCode.append(s + " " + s +" = new " + s + "();");
+                classSourceCode.append(System.lineSeparator());
+            }
+    }
         classSourceCode.append(System.lineSeparator());
         classSourceCode.append("method() {").append(System.lineSeparator());
-        classSourceCode.append(localScopeRelations.stream().collect(Collectors.joining(System.lineSeparator())));
+        if(localScopeRelations.size() > 0){
+            for (String s : localScopeRelations){
+                classSourceCode.append(s + " " + s +" = new " + s + "();");
+                classSourceCode.append(System.lineSeparator());
+            }
+    }
         classSourceCode.append("}").append(System.lineSeparator());
         classSourceCode.append("}").append(System.lineSeparator());
 
