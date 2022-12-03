@@ -144,7 +144,7 @@ public class UMLPanel extends JPanel implements MouseInputListener, Observer {
     public String inputBoxName() {
         String name = (String) JOptionPane.showInputDialog(this, "Enter box name:\n", "Customized Dialog", JOptionPane.PLAIN_MESSAGE, null, null, "");
 
-        if (name == null){
+        if (name == null) {
             StatusLogger.getInstance().setMessage("Class creation cancelled!!");
         }
 

@@ -1,8 +1,8 @@
 package edu.asu.agupt385.cse564.assignment4.util;
 
-import edu.asu.agupt385.cse564.assignment4.view.StatusLogger;
 import edu.asu.agupt385.cse564.assignment4.model.Edge;
 import edu.asu.agupt385.cse564.assignment4.model.Vertex;
+import edu.asu.agupt385.cse564.assignment4.view.StatusLogger;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -42,10 +42,9 @@ public class GraphDataSource extends Observable {
     }
 
     public void addEdge(Edge e) {
-        if(this.hasEdge(e)){
+        if (this.hasEdge(e)) {
             StatusLogger.getInstance().setMessage("Relationship already exists!!");
-        }
-        else{
+        } else {
             graph.get(e.getSource()).add(e);
             this.setChanged();
             this.notifyObservers();
@@ -53,12 +52,12 @@ public class GraphDataSource extends Observable {
         }
     }
 
-    public boolean hasVertex(Vertex v) {
-        return graph.containsKey(v);
-    }
-
     public boolean hasEdge(Edge e) {
         return graph.get(e.getSource()).contains(e);
+    }
+
+    public boolean hasVertex(Vertex v) {
+        return graph.containsKey(v);
     }
 
     public Vertex getVertexByName(String vertexName) {
