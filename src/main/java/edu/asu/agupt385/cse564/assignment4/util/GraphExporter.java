@@ -9,6 +9,13 @@ import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Set;
 
+/**
+ * This class defines the export functionality for a graph stored
+ * in {@link GraphDataSource}
+ *
+ * @author Anand Gupta
+ * @version 1.0
+ */
 public class GraphExporter {
     private static final String NODE_FORMAT = "%s [label=%s, " +
             "pos=\"%d, %d\", shape=box, color=black, fillcolor=yellow, " +
@@ -20,6 +27,15 @@ public class GraphExporter {
     private static final String EDGE_FORMAT_COMPOSITION = "%s -> %s " +
             "[style=solid, dir=both, arrowtail=diamond, arrowhead=none]";
 
+    /**
+     * This method is used to export the graph as a DOT file which has
+     * specific grammar rules.
+     * It will fetch all the vertices and edges of the graph, and model that
+     * information in form of a dot file which can be used with external
+     * systems.
+     *
+     * @param outputStream stream for dot file output
+     */
     public void exportGraph(OutputStream outputStream) {
         GraphDataSource dataSource = GraphDataSource.getInstance();
         StringBuilder output = new StringBuilder();

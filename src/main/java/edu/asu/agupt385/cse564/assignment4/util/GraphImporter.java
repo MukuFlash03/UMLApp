@@ -16,8 +16,26 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * This class defines the import functionality for a dot file and saving as a
+ * graph in {@link GraphDataSource}. It utilizes DOT lexer and parser generated
+ * by antlr for reading and parsing the dot file.
+ *
+ * @author Anand Gupta
+ * @version 1.0
+ */
 public class GraphImporter {
     GraphDataSource dataSource = GraphDataSource.getInstance();
+
+    /**
+     * This method is used to read and parse the content passed as parameter,
+     * and represent it as a graph in {@link GraphDataSource}.
+     * The VertexListener is used to parse all the nodes, and the
+     * EdgeListener is used to parse all the edges which represent a
+     * relationship between nodes.
+     *
+     * @param inputStream of content which follows DOT file grammar
+     */
     public void importGraph(InputStream inputStream) {
         try {
             DOTLexer dotLexer = new DOTLexer(CharStreams.fromStream(inputStream));

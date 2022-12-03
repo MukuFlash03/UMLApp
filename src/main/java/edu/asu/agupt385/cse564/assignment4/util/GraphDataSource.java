@@ -14,6 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.stream.Collectors;
 
+
 public class GraphDataSource extends Observable {
     private static volatile GraphDataSource INSTANCE;
 
@@ -35,10 +36,14 @@ public class GraphDataSource extends Observable {
     }
 
     public void addVertex(Vertex v) {
-        graph.put(v, new ConcurrentSkipListSet<>());
-        this.setChanged();
-        this.notifyObservers();
-        StatusLogger.getInstance().setMessage(v.getName() + " class created!!");
+        if (!hasVertex(v)) {
+            graph.put(v, new ConcurrentSkipListSet<>());
+            this.setChanged();
+            this.notifyObservers();
+            StatusLogger.getInstance().setMessage(v.getName() + " class created!!");
+        } else {
+            StatusLogger.getInstance().setMessage("Class already exists!!");
+        }
     }
 
     public void addEdge(Edge e) {
