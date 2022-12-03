@@ -10,6 +10,7 @@ import javax.swing.SwingUtilities;
  * @author Anand Gupta
  * @author Mukul C. Mahadik
  * @author Shrinkhala Kayastha
+ * @version 1.0
  */
 public class Application {
 
