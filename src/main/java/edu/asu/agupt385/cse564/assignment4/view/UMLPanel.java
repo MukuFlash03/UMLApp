@@ -15,8 +15,10 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
+import java.util.Observable;
+import java.util.Observer;
 
-public class UMLPanel extends JPanel implements MouseInputListener {
+public class UMLPanel extends JPanel implements MouseInputListener, Observer {
 
     private static final int MAXCOUNT = 5;
     private static final int PREF_W = 700;
@@ -36,6 +38,7 @@ public class UMLPanel extends JPanel implements MouseInputListener {
 
     public UMLPanel() {
         blackboard = GraphDataSource.getInstance();
+        blackboard.addObserver(this);
         this.setBackground(Color.white);
         this.setBorder(new LineBorder(Color.DARK_GRAY, 1, true));
         addMouseListener(this);
@@ -187,5 +190,10 @@ public class UMLPanel extends JPanel implements MouseInputListener {
         if (getBox(x, y) != null)
             setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         else setCursor(Cursor.getDefaultCursor());
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        this.repaint(100);
     }
 }
