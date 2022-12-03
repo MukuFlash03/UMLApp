@@ -16,11 +16,10 @@ public class SourceCodePanel extends JPanel implements Observer {
 
     SourceCodePanel() {
         GraphDataSource.getInstance().addObserver(this);
-        this.sourceCodeTextArea = new JTextArea(50,50);
+        this.sourceCodeTextArea = new JTextArea(50, 50);
         this.add(new JScrollPane(this.sourceCodeTextArea,
                 JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
-                JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS
-                 ));
+                JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS));
     }
 
     @Override
@@ -53,25 +52,25 @@ public class SourceCodePanel extends JPanel implements Observer {
         });
 
         classSourceCode.append("class " + vertex.getName());
-        if(classDeclarationRelations.size() > 0){
+        if (classDeclarationRelations.size() > 0) {
             classSourceCode.append(" extends ");
             classSourceCode.append(classDeclarationRelations.stream().collect(Collectors.joining(",")));
         }
         classSourceCode.append(" {").append(System.lineSeparator());
-        if(instanceScopeRelations.size() > 0){
-            for (String s : instanceScopeRelations){
-                classSourceCode.append(s + " " + s +" = new " + s + "();");
+        if (instanceScopeRelations.size() > 0) {
+            for (String s : instanceScopeRelations) {
+                classSourceCode.append(s + " " + s + " = new " + s + "();");
                 classSourceCode.append(System.lineSeparator());
             }
-    }
+        }
         classSourceCode.append(System.lineSeparator());
         classSourceCode.append("method() {").append(System.lineSeparator());
-        if(localScopeRelations.size() > 0){
-            for (String s : localScopeRelations){
-                classSourceCode.append(s + " " + s +" = new " + s + "();");
+        if (localScopeRelations.size() > 0) {
+            for (String s : localScopeRelations) {
+                classSourceCode.append(s + " " + s + " = new " + s + "();");
                 classSourceCode.append(System.lineSeparator());
             }
-    }
+        }
         classSourceCode.append("}").append(System.lineSeparator());
         classSourceCode.append("}").append(System.lineSeparator());
 

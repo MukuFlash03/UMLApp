@@ -79,8 +79,12 @@ public class MenuBarController implements ActionListener {
             exporter.exportGraph(Files.newOutputStream(outputPath));
         } catch (IOException e) {
             JOptionPane.showMessageDialog(new JFrame(), "Issue in saving file", "Error", JOptionPane.ERROR_MESSAGE);
+            System.err.println("Issue in saving file: " + outputFile);
+            System.err.println(e.getMessage());
         } catch (RuntimeException e) {
             JOptionPane.showMessageDialog(new JFrame(), e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            System.err.println("Issue in saving file: " + outputFile);
+            System.err.println(e.getMessage());
         }
     }
 
