@@ -20,7 +20,7 @@ import java.util.Observer;
 
 public class UMLPanel extends JPanel implements MouseInputListener, Observer {
 
-    private static final int MAXCOUNT = 5;
+    private static final int MAXCOUNT = 50;
     private static final int PREF_W = 700;
     private static final int PREF_H = 250;
     private static final int BOX_W = 150;
