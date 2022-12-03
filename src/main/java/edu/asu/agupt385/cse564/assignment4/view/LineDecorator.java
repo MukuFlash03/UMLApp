@@ -5,21 +5,21 @@ import edu.asu.agupt385.cse564.assignment4.model.Vertex;
 import java.awt.Graphics;
 
 /**
- * This class plots the randomly generated points in the GUI and connects them with the line
- * forming line graph for the points.
+ * This class serves as the concrete component of the Decorator pattern.
+ * It deals with drawing a simple line connecting two points.
  *
  * @author Shrinkhala Kayastha
- * @author Mukul Mahadik
  * @version 1.0
  */
 public class LineDecorator implements PlotComponent {
 
     /**
-     * Overrides the method operation in parent class. This function draws the plotted points
-     * and connects them with a line graph.
-     *
-     * @param g           object for class Graphics
-     * @param coordinates arraylist with coordinates of the plotted points
+     * Overrides the method drawLineHead() in parent class. 
+     * This function draws a line segment connecting the centers of 
+     * the given pair of vertices
+     * @param g object for class Graphics
+     * @param a Source vertex
+     * @param b Destination vertex
      */
     @Override
     public void drawLineHead(Graphics g, Vertex a, Vertex b) {

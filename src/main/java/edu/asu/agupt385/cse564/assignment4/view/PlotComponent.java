@@ -6,23 +6,21 @@ import java.awt.Graphics;
 
 /**
  * This class is the interface and main class for implementing Decorator pattern.
- * It exposes a public function which is overriden by other classes accorinding
+ * It exposes a public function which is overriden by other classes according
  * to their use case.
  *
- * @author Mukul Mahadik
+ * @author Shrinkhala Kayastha
  * @version 1.0
  */
 public interface PlotComponent {
     /**
-     * This function draws the GUI components for the randomly generated points.
-     * GUI has majorly three components:
-     * 1. Panel showing plotted points and line graph
-     * 2. Panel showing plotted points in square shape and line graph
-     * 3. Panel showing points with bar and line graph
+     * This function draws the line arrow heads depending on the three relationship types:
+     * 1. Association: Simple arrow head
+     * 2. Composition: Filled diamond head
+     * 3. Inheritance: Triangular arrow head
      *
      * @param g object for class Graphics
      * @param
      */
-
     void drawLineHead(Graphics g, Vertex a, Vertex b);
 }

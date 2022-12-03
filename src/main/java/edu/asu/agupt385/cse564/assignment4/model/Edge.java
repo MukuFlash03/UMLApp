@@ -55,6 +55,10 @@ public class Edge implements Comparable<Edge> {
         return relationshipType;
     }
 
+    /** 
+     * Checks whether object types match
+     * @param o Object to be checked
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -63,6 +67,9 @@ public class Edge implements Comparable<Edge> {
         return source.equals(edge.source) && destination.equals(edge.destination);
     }
 
+    /** 
+     * Returns objects hash code to ensure duplicate objects not created
+     */
     @Override
     public int hashCode() {
         return Objects.hash(source, destination);

@@ -34,6 +34,10 @@ public class GraphDataSource extends Observable {
         this.graph = new ConcurrentHashMap<>();
     }
 
+        
+    /** 
+     * Returns instantiated object of this class
+     */
     public static GraphDataSource getInstance() {
         if (INSTANCE == null) {
             synchronized (GraphDataSource.class) {

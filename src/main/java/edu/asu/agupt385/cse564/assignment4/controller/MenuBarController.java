@@ -77,10 +77,16 @@ public class MenuBarController implements ActionListener {
         }
     }
 
+    /**
+     * Handles the menu action event for creating new UML diagram
+     */
     private void handleNewDiagram() {
         this.dataSource.deleteAll();
     }
 
+    /**
+     * Handles the menu action event for loading UML diagram
+     */
     private void handleLoadDiagram() {
         String fileName;
         JFileChooser fileChooser = new JFileChooser();
@@ -96,6 +102,9 @@ public class MenuBarController implements ActionListener {
         }
     }
 
+    /**
+     * Handles the menu action event for saving UML diagram
+     */
     private void handleSaveDiagram() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss");
         String timestamp = LocalDateTime.now().format(formatter);
@@ -114,6 +123,9 @@ public class MenuBarController implements ActionListener {
         }
     }
 
+    /**
+     * Handles the menu action event for displaying team info
+     */
     private void handleTeamInfo() {
         String[] teamInfo = {"Anand Gupta (agupt385@asu.edu)", "Mukul C. Mahadik (mmahadik@asu.edu)", "Shrinkhala Kayastha (skayast1@asu.edu)"};
         JOptionPane.showMessageDialog(new JFrame(), teamInfo, "Info", JOptionPane.INFORMATION_MESSAGE);

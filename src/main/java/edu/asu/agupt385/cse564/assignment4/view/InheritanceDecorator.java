@@ -5,19 +5,21 @@ import edu.asu.agupt385.cse564.assignment4.model.Vertex;
 import java.awt.*;
 
 /**
- * This class is one of the concrete class for Plot Decorator. It adds bar to the
- * already plotted square points in the GUI.
+ * This class is one of the child concrete decorators for PlotDecorator. 
+ * It adds triangular arrow head to the already plotted 
+ * simple line between two sets of vertices.
  *
  * @author Shrinkhala Kayastha
- * @author Mukul Mahadik
  * @version 1.0
 * */
 public class InheritanceDecorator extends PlotDecorator {
 
     /**
-     * Overrides the method operation in parent class. This function draws the bar for the already plotted points.
+     * Overrides the method drawLineHead() in parent class. 
+     * This function draws triangular arrow heads for the line between the given pair of vertices
      * @param g object for class Graphics
-     * @param coordinates arraylist with coordinates of the plotted points
+     * @param a Source vertex
+     * @param b Destination vertex
      */
     @Override
     public void drawLineHead(Graphics g, Vertex a, Vertex b) {

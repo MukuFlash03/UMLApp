@@ -18,6 +18,14 @@ import java.awt.event.MouseEvent;
 import java.util.Observable;
 import java.util.Observer;
 
+/**
+ * This class represents the panel on the right side of the GUI 
+ * It is an Observer class which updates the GUI and draws boxes and 
+ * their corresponding relationships according to the classes created by the user.
+ *
+ * @author Mukul C. Mahadik
+ * @version 1.0
+ */
 public class UMLPanel extends JPanel implements MouseInputListener, Observer {
 
     private static final int MAXCOUNT = 50;

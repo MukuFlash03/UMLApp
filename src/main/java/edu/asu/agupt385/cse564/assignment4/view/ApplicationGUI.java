@@ -16,7 +16,6 @@ import java.awt.Toolkit;
 /**
  * This class defines the GUI of the application
  *
- * @author Anand Gupta
  * @author Mukul Mahadik
  * @author Shrinkhala Kayastha
  * @version 1.0
@@ -53,6 +52,10 @@ public class ApplicationGUI extends JFrame {
         setVisible(true);
     }
 
+    /**
+     * Initializes the major GUI components of the application including:
+     * Menubar, SourceCodePanel, UMLPanel, StatusBar
+     */
     private void initialize() {
         this.menuBar = new MenuBar(new MenuBarController(new GraphImporter(),
                 new GraphExporter()));

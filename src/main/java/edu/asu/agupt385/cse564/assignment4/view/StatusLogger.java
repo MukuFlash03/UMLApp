@@ -6,6 +6,17 @@ import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.Color;
 
+/**
+ * This class represents the status bar present at the bottom of the GUI. 
+ * It notifies users about the actions going on in the tool.
+ * 
+ * This class is a Singleton as it maintains a single copy of the class 
+ * to update the user with the latest actions performed by 
+ * the application or the user.
+ *
+ * @author Shrinkhala Kayastha
+ * @version 1.0
+ */
 public class StatusLogger extends JPanel {
 
     private static volatile StatusLogger INSTANCE;
@@ -21,6 +32,10 @@ public class StatusLogger extends JPanel {
         add(BorderLayout.CENTER, statusLabel);
     }
 
+        
+    /** 
+     * Returns instantiated object of this class
+     */
     public static StatusLogger getInstance() {
         if (INSTANCE == null) {
             synchronized (StatusLogger.class) {
@@ -32,6 +47,10 @@ public class StatusLogger extends JPanel {
         return INSTANCE;
     }
 
+    /** 
+     * Sets the status message to be displayed
+     * @param message Status message to be updated
+     */
     public void setMessage(String message) {
         if (message.equals(""))
             statusLabel.setText("Ready");

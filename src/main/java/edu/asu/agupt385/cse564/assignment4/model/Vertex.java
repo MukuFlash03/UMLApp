@@ -30,14 +30,23 @@ public class Vertex implements Comparable<Vertex> {
         this.bounds = new Rectangle(x - BOX_W / 2, y - BOX_H / 2, BOX_W, BOX_H);
     }
 
+    /**
+     * Getter for rectangle object
+     */
     public Rectangle getBounds() {
         return bounds;
     }
 
+    /**
+     * Getter for x coordinate of Rectangle
+     */
     public int getX() {
         return bounds.x;
     }
 
+    /**
+     * Getter for y coordinate of Rectangle
+     */
     public int getY() {
         return bounds.y;
     }
@@ -74,11 +83,18 @@ public class Vertex implements Comparable<Vertex> {
         return new Point(bounds.x + bounds.width / 2, bounds.y + bounds.height / 2);
     }
 
+    /** 
+     * Returns objects hash code to ensure duplicate objects not created
+     */
     @Override
     public int hashCode() {
         return Objects.hash(name);
     }
 
+    /** 
+     * Checks whether object types match
+     * @param o Object to be checked
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -106,6 +122,9 @@ public class Vertex implements Comparable<Vertex> {
         return this.name.compareTo(o.getName());
     }
 
+    /**
+     * Getter for name of Rectangle
+     */
     public String getName() {
         return name;
     }

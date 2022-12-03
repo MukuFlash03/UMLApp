@@ -15,6 +15,15 @@ import java.util.Observer;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+
+/**
+ * This class represents the panel on the left side of the GUI 
+ * It is an Observer class which displays the code according 
+ * to the classes created by the user.
+ *
+ * @author Mukul Mahadik
+ * @version 1.0
+ */
 public class SourceCodePanel extends JPanel implements Observer {
 
     private final JTextArea sourceCodeTextArea;
@@ -25,6 +34,12 @@ public class SourceCodePanel extends JPanel implements Observer {
         this.add(new JScrollPane(this.sourceCodeTextArea, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS));
     }
 
+    /**
+     * This function updates the GUI panels 
+     * with relationships and vertices data present in the GraphDataSource
+     * @param o object of Observable class
+     * @param arg additional object with update function
+     */
     @Override
     public void update(Observable o, Object arg) {
         if (o instanceof GraphDataSource) {
@@ -38,6 +53,10 @@ public class SourceCodePanel extends JPanel implements Observer {
         }
     }
 
+    /**
+     * Returns the string built as per the relationship type 
+     * existing between each pair of vertices.
+     */
     private StringBuilder getFormattedVertex(Vertex vertex, Set<Edge> edges) {
         List<String> classDeclarationRelations = new ArrayList<>();
         List<String> instanceScopeRelations = new ArrayList<>();
