@@ -19,17 +19,38 @@ import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * This class acts as a controller for
+ * {@link javax.swing.JMenuItem} in
+ * {@link edu.asu.agupt385.cse564.assignment4.view.MenuBar}
+ *
+ * @author Anand Gupta
+ * @version 1.0
+ */
 public class MenuBarController implements ActionListener {
     private final GraphImporter importer;
     private final GraphExporter exporter;
     private final GraphDataSource dataSource;
 
+    /**
+     * Constructs an object of MenuBarController with graph importer and
+     * graph exporter services along with the data source
+     *
+     * @param importer graph importer service for loading dot files
+     * @param exporter graph exporter service for saving graph as dot files
+     */
     public MenuBarController(GraphImporter importer, GraphExporter exporter) {
         this.importer = importer;
         this.exporter = exporter;
         this.dataSource = GraphDataSource.getInstance();
     }
 
+    /**
+     * This method handles all the events associated with this listener.
+     * The supported actions commands are: New, Load, Save and About
+     *
+     * @param e the event to be processed
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         String command = e.getActionCommand();

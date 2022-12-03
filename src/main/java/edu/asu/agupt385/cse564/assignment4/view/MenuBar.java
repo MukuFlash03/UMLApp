@@ -5,11 +5,21 @@ import edu.asu.agupt385.cse564.assignment4.controller.MenuBarController;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.event.MenuEvent;
-import javax.swing.event.MenuListener;
 
+/**
+ * This class defines a custom {@link JMenuBar} to be used in the application
+ *
+ * @author Anand Gupta
+ * @version 1.0
+ */
 public class MenuBar extends JMenuBar {
 
+    /**
+     * Constructs an object of MenuBar which has the following menu items:
+     * File - New, Load, and Save; Help - About Team
+     *
+     * @param controller to handle the events associated with JMenuItem
+     */
     public MenuBar(MenuBarController controller) {
         JMenu fileMenu = new JMenu("File");
         JMenuItem newDiagram = new JMenuItem("New");
