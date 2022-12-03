@@ -86,11 +86,13 @@ public class UMLPanel extends JPanel implements MouseInputListener, Observer {
         int y = e.getY();
 
         if ((clickCount < 2) && (getBox(x, y) != null)) {
+            StatusLogger.getInstance().setMessage("First class selected. Please click on another class to form relationship");
             relationBoxes[clickCount] = new Point(x, y);
             relationsBox[clickCount] = getBox(x, y);
             clickCount++;
 
             if (clickCount == 2) {
+                StatusLogger.getInstance().setMessage("Choose relation type");
                 RelationshipType relation = chooseRelation();
 
                 if (relation != null) {
@@ -142,6 +144,10 @@ public class UMLPanel extends JPanel implements MouseInputListener, Observer {
     public String inputBoxName() {
         String name = (String) JOptionPane.showInputDialog(this, "Enter box name:\n", "Customized Dialog", JOptionPane.PLAIN_MESSAGE, null, null, "");
 
+        if (name == null){
+            StatusLogger.getInstance().setMessage("Class creation cancelled!!");
+        }
+
         return name;
     }
 
@@ -181,6 +187,7 @@ public class UMLPanel extends JPanel implements MouseInputListener, Observer {
             paintRectangle(graphics, currentBox);
             graphics.dispose();
             repaint();
+            StatusLogger.getInstance().setMessage("Class box moved!!");
         }
     }
 
