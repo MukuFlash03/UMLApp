@@ -46,4 +46,13 @@ public class Edge implements Comparable<Edge> {
                 .thenComparing(Edge::getDestination)
                 .compare(this, o);
     }
+
+    @Override
+    public String toString() {
+        return "Edge{" +
+                "source=" + source +
+                ", destination=" + destination +
+                ", relationshipType=" + relationshipType +
+                '}';
+    }
 }

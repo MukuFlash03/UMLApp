@@ -17,6 +17,11 @@ public class MenuPanel {
         put("Help", new String[] {"View Team Details"});
     }};
     
+    String[] teamInfo = {   "Anand Gupta (agupt385@asu.edu)", 
+                            "Mukul C. Mahadik (mmahadik@asu.edu)", 
+                            "Shrinkhala Kayastha (skayast1@asu.edu)"
+                        };
+
     public MenuPanel() {
 
         menuBar = new JMenuBar();
@@ -38,5 +43,9 @@ public class MenuPanel {
 
     public JMenuBar getMenuBar() {
         return menuBar;
+    }
+
+    public String[] getTeamInfo() {
+        return teamInfo;
     }
 }

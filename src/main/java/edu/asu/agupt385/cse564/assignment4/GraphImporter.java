@@ -41,7 +41,7 @@ public class GraphImporter {
                         String[] posValueSplit = posValue.split(",");
                         dataSource.addVertex(new Vertex(vertexName,
                                 Integer.parseInt(posValueSplit[0].trim()),
-                                        Integer.parseInt(posValueSplit[1].trim()), 16));
+                                        Integer.parseInt(posValueSplit[1].trim())));
                         break;
                     }
                     if ("pos".equalsIgnoreCase(idContext.getText())) {

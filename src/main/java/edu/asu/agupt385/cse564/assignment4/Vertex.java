@@ -12,16 +12,9 @@ public class Vertex implements Comparable<Vertex> {
     private static final int BOX_W = 150;
     private static final int BOX_H = 75;
 
-    public Vertex(String name, int x, int y, int size) {
+    public Vertex(String name, int x, int y) {
         this.name = name;
         this.bounds = new Rectangle(x - BOX_W/2, y - BOX_H/2, BOX_W, BOX_H);
-        /*
-        if (size < 16) {
-            this.bounds = new Rectangle(x - BOX_W/2, y - BOX_H/2, 16, 16);
-        } else {
-            this.bounds = new Rectangle(x - BOX_W/2, y - BOX_H/2, size, 16);
-        }
-        */
     }
 
     public Rectangle getBounds() {
@@ -73,5 +66,13 @@ public class Vertex implements Comparable<Vertex> {
     @Override
     public int compareTo(Vertex o) {
         return this.name.compareTo(o.getName());
+    }
+
+    @Override
+    public String toString() {
+        return "Vertex{" +
+                "name='" + name + '\'' +
+                ", bounds=" + bounds +
+                '}';
     }
 }

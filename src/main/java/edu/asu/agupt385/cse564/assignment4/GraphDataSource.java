@@ -41,8 +41,7 @@ public class GraphDataSource extends Observable {
         graph.get(e.getSource()).add(e);
         this.setChanged();
         this.notifyObservers();
-        StatusLogger.getInstance().setMessage(e.getRelationshipType() + " " +
-                "relationship added in between!!");
+        StatusLogger.getInstance().setMessage(e.getRelationshipType() + " " + "relationship added in between!!");
     }
 
     public boolean hasVertex(Vertex v) {
@@ -54,8 +53,7 @@ public class GraphDataSource extends Observable {
     }
 
     public Vertex getVertexByName(String vertexName) {
-        Optional<Vertex> v =
-                this.getAllVertices().stream().filter(vertex -> vertexName.equalsIgnoreCase(vertex.getName())).findFirst();
+        Optional<Vertex> v = this.getAllVertices().stream().filter(vertex -> vertexName.equalsIgnoreCase(vertex.getName())).findFirst();
         if (v.isPresent()) {
             return v.get();
         } else {
@@ -75,13 +73,13 @@ public class GraphDataSource extends Observable {
         return graph.values().stream().flatMap(Collection::stream).collect(Collectors.toSet());
     }
 
-    public int getVertexCount() {
-        return graph.size();
-    }
-
-    public void deleteAll(){
+    public void deleteAll() {
         graph.clear();
         this.setChanged();
         this.notifyObservers();
+    }
+
+    public int getVertexCount() {
+        return graph.size();
     }
 }

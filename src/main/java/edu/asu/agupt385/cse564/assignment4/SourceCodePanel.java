@@ -15,6 +15,7 @@ public class SourceCodePanel extends JPanel implements Observer {
     private final JTextArea sourceCodeTextArea;
 
     SourceCodePanel() {
+        GraphDataSource.getInstance().addObserver(this);
         this.sourceCodeTextArea = new JTextArea(50,50);
         this.add(new JScrollPane(this.sourceCodeTextArea,
                 JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,

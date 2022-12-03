@@ -7,7 +7,7 @@ public class Application {
         GraphImporter importer = new GraphImporter();
 //        importer.importGraph(Application.class.getClassLoader().getResourceAsStream("graph.dot"));
         SwingUtilities.invokeLater(() -> {
-            new ApplicationGUI("Assignment 4");
+            new ApplicationGUI("Assignment 4_5");
         });
 //        GraphDataSource dataSource = GraphDataSource.getInstance();
 //        dataSource.getAllVertices().stream().forEach(vertex -> {
