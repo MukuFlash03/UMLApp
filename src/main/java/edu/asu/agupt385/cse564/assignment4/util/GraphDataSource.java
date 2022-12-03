@@ -42,10 +42,15 @@ public class GraphDataSource extends Observable {
     }
 
     public void addEdge(Edge e) {
-        graph.get(e.getSource()).add(e);
-        this.setChanged();
-        this.notifyObservers();
-        StatusLogger.getInstance().setMessage(e.getRelationshipType() + " " + "relationship added in between!!");
+        if(this.hasEdge(e)){
+            StatusLogger.getInstance().setMessage("Relationship already exists!!");
+        }
+        else{
+            graph.get(e.getSource()).add(e);
+            this.setChanged();
+            this.notifyObservers();
+            StatusLogger.getInstance().setMessage(e.getRelationshipType() + " " + "relationship added in between!!");
+        }
     }
 
     public boolean hasVertex(Vertex v) {

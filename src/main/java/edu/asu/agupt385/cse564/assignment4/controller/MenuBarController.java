@@ -3,6 +3,7 @@ package edu.asu.agupt385.cse564.assignment4.controller;
 import edu.asu.agupt385.cse564.assignment4.util.GraphDataSource;
 import edu.asu.agupt385.cse564.assignment4.util.GraphExporter;
 import edu.asu.agupt385.cse564.assignment4.util.GraphImporter;
+import edu.asu.agupt385.cse564.assignment4.view.StatusLogger;
 
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -35,15 +36,19 @@ public class MenuBarController implements ActionListener {
         String command = e.getActionCommand();
         switch (command) {
             case "new":
+                StatusLogger.getInstance().setMessage("Create new classes selected");
                 this.handleNewDiagram();
                 break;
             case "load":
+                StatusLogger.getInstance().setMessage("Load the diagram selected");
                 this.handleLoadDiagram();
                 break;
             case "save":
+                StatusLogger.getInstance().setMessage("Save the diagram selected");
                 this.handleSaveDiagram();
                 break;
             case "about":
+                StatusLogger.getInstance().setMessage("View team details selected");
                 this.handleTeamInfo();
                 break;
             default:
