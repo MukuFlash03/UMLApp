@@ -1,17 +1,19 @@
-package edu.asu.agupt385.cse564.assignment4;
+package edu.asu.agupt385.cse564.assignment4.view;
 
+import javax.swing.BorderFactory;
 import javax.swing.JLabel;
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import java.awt.Color;
 
 public class StatusLogger extends JPanel {
 
     private static volatile StatusLogger INSTANCE;
 
-    private JLabel statusLabel;
+    private final JLabel statusLabel;
 
     private StatusLogger() {
-        setLayout(new BorderLayout(1,1));
+        setLayout(new BorderLayout(1, 1));
 
         statusLabel = new JLabel("Ready");
         statusLabel.setBorder(BorderFactory.createLoweredBevelBorder());

@@ -1,4 +1,4 @@
-package edu.asu.agupt385.cse564.assignment4;
+package edu.asu.agupt385.cse564.assignment4.view;
 
 import edu.asu.agupt385.cse564.assignment4.controller.MenuBarController;
 

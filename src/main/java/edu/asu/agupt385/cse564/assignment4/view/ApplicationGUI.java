@@ -1,6 +1,8 @@
-package edu.asu.agupt385.cse564.assignment4;
+package edu.asu.agupt385.cse564.assignment4.view;
 
 import edu.asu.agupt385.cse564.assignment4.controller.MenuBarController;
+import edu.asu.agupt385.cse564.assignment4.util.GraphExporter;
+import edu.asu.agupt385.cse564.assignment4.util.GraphImporter;
 
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
@@ -17,7 +19,7 @@ public class ApplicationGUI extends JFrame {
     protected JPanel umlPanel;
     protected JPanel statusBar;
 
-    ApplicationGUI(String title) {
+    public ApplicationGUI(String title) {
         super(title);
         setLayout(new BorderLayout());
         setResizable(false);

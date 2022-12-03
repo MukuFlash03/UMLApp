@@ -1,4 +1,8 @@
-package edu.asu.agupt385.cse564.assignment4;
+package edu.asu.agupt385.cse564.assignment4.util;
+
+import edu.asu.agupt385.cse564.assignment4.model.RelationshipType;
+import edu.asu.agupt385.cse564.assignment4.model.Edge;
+import edu.asu.agupt385.cse564.assignment4.model.Vertex;
 
 import java.io.IOException;
 import java.io.OutputStream;

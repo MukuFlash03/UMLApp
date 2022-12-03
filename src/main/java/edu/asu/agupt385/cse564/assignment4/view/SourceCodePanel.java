@@ -1,4 +1,9 @@
-package edu.asu.agupt385.cse564.assignment4;
+package edu.asu.agupt385.cse564.assignment4.view;
+
+import edu.asu.agupt385.cse564.assignment4.model.Edge;
+import edu.asu.agupt385.cse564.assignment4.model.RelationshipType;
+import edu.asu.agupt385.cse564.assignment4.model.Vertex;
+import edu.asu.agupt385.cse564.assignment4.util.GraphDataSource;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -17,9 +22,7 @@ public class SourceCodePanel extends JPanel implements Observer {
     SourceCodePanel() {
         GraphDataSource.getInstance().addObserver(this);
         this.sourceCodeTextArea = new JTextArea(50, 50);
-        this.add(new JScrollPane(this.sourceCodeTextArea,
-                JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
-                JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS));
+        this.add(new JScrollPane(this.sourceCodeTextArea, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS));
     }
 
     @Override

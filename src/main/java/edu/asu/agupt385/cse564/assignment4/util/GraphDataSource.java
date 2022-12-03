@@ -1,4 +1,8 @@
-package edu.asu.agupt385.cse564.assignment4;
+package edu.asu.agupt385.cse564.assignment4.util;
+
+import edu.asu.agupt385.cse564.assignment4.view.StatusLogger;
+import edu.asu.agupt385.cse564.assignment4.model.Edge;
+import edu.asu.agupt385.cse564.assignment4.model.Vertex;
 
 import java.util.Collection;
 import java.util.HashSet;

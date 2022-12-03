@@ -1,6 +1,8 @@
-package edu.asu.agupt385.cse564.assignment4;
+package edu.asu.agupt385.cse564.assignment4.view;
 
-import java.awt.*;
+import edu.asu.agupt385.cse564.assignment4.model.Vertex;
+
+import java.awt.Graphics;
 
 /**
  * This class is one of the concrete class for Plot Decorator. It plots the randomly generated
@@ -9,12 +11,13 @@ import java.awt.*;
  * @author Shrinkhala Kayastha
  * @author Mukul Mahadik
  * @version 1.0
- * */
+ */
 public class AssociationDecorator extends PlotDecorator {
 
     /**
      * Overrides the method operation in parent class. This function draws the plotted points in square shape.
-     * @param g object for class Graphics
+     *
+     * @param g           object for class Graphics
      * @param coordinates arraylist with coordinates of the plotted points
      */
     @Override

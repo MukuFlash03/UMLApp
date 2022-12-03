@@ -1,4 +1,9 @@
-package edu.asu.agupt385.cse564.assignment4;
+package edu.asu.agupt385.cse564.assignment4.view;
+
+import edu.asu.agupt385.cse564.assignment4.model.Edge;
+import edu.asu.agupt385.cse564.assignment4.model.RelationshipType;
+import edu.asu.agupt385.cse564.assignment4.model.Vertex;
+import edu.asu.agupt385.cse564.assignment4.util.GraphDataSource;
 
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -18,20 +23,16 @@ public class UMLPanel extends JPanel implements MouseInputListener {
     private static final int PREF_H = 250;
     private static final int BOX_W = 150;
     private static final int BOX_H = 75;
-    private Vertex currentBox;
     private final GraphDataSource blackboard;
-
     private final String[] relationsOptions = {"ASSOCIATION", "COMPOSITION", "INHERITANCE"};
-
-    private int boxCount = 0;
-
-    private int clickCount = 0;
     private final Point[] relationBoxes;
     private final Vertex[] relationsBox;
-
     AssociationHandler associate;
     CompositionHandler compose;
     InheritanceHandler inherit;
+    private Vertex currentBox;
+    private int boxCount = 0;
+    private int clickCount = 0;
 
     public UMLPanel() {
         blackboard = GraphDataSource.getInstance();
@@ -97,50 +98,25 @@ public class UMLPanel extends JPanel implements MouseInputListener {
             }
 
             repaint();
-        } else
-            clickCount = 0;
+        } else clickCount = 0;
 
-    }
-
-    public RelationshipType chooseRelation() {
-
-        RelationshipType relation = null;
-
-        String relationChoice = (String) JOptionPane.showInputDialog(
-                null,
-                "Choose Relation",
-                "Relationship Type",
-                JOptionPane.INFORMATION_MESSAGE,
-                null,
-                relationsOptions,
-                relationsOptions[0]);
-
-        if (relationChoice == null)
-            return relation;
-
-        if (relationChoice.equals(relationsOptions[0]))
-            relation = RelationshipType.ASSOCIATION;
-        else if (relationChoice.equals(relationsOptions[1]))
-            relation = RelationshipType.COMPOSITION;
-        else if (relationChoice.equals(relationsOptions[2]))
-            relation = RelationshipType.INHERITANCE;
-
-        return relation;
     }
 
     public void mousePressed(MouseEvent e) {
         int x = e.getX();
         int y = e.getY();
         currentBox = getBox(x, y);
-        if (currentBox == null)
-            addBox(x, y);
+        if (currentBox == null) addBox(x, y);
     }
 
-    public void mouseReleased(MouseEvent e) {}
+    public void mouseReleased(MouseEvent e) {
+    }
 
-    public void mouseEntered(MouseEvent e) {}
+    public void mouseEntered(MouseEvent e) {
+    }
 
-    public void mouseExited(MouseEvent e) {}
+    public void mouseExited(MouseEvent e) {
+    }
 
     public void addBox(int x, int y) {
 
@@ -161,16 +137,34 @@ public class UMLPanel extends JPanel implements MouseInputListener {
     }
 
     public String inputBoxName() {
-        String name = (String) JOptionPane.showInputDialog(
-                this,
-                "Enter box name:\n",
-                "Customized Dialog",
-                JOptionPane.PLAIN_MESSAGE,
-                null,
-                null,
-                "");
+        String name = (String) JOptionPane.showInputDialog(this, "Enter box name:\n", "Customized Dialog", JOptionPane.PLAIN_MESSAGE, null, null, "");
 
         return name;
+    }
+
+    public Vertex getBox(int x, int y) {
+        for (Vertex v : blackboard.getAllVertices()) {
+            if (v.contains(x, y)) return v;
+        }
+        return null;
+    }
+
+    public RelationshipType chooseRelation() {
+
+        RelationshipType relation = null;
+
+        String relationChoice = (String) JOptionPane.showInputDialog(null, "Choose Relation", "Relationship Type", JOptionPane.INFORMATION_MESSAGE, null, relationsOptions, relationsOptions[0]);
+
+        if (relationChoice == null) return relation;
+
+        if (relationChoice.equals(relationsOptions[0]))
+            relation = RelationshipType.ASSOCIATION;
+        else if (relationChoice.equals(relationsOptions[1]))
+            relation = RelationshipType.COMPOSITION;
+        else if (relationChoice.equals(relationsOptions[2]))
+            relation = RelationshipType.INHERITANCE;
+
+        return relation;
     }
 
     public void mouseDragged(MouseEvent e) {
@@ -192,15 +186,6 @@ public class UMLPanel extends JPanel implements MouseInputListener {
         int y = e.getY();
         if (getBox(x, y) != null)
             setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        else
-            setCursor(Cursor.getDefaultCursor());
-    }
-
-    public Vertex getBox(int x, int y) {
-        for (Vertex v : blackboard.getAllVertices()) {
-            if (v.contains(x, y))
-                return v;
-        }
-        return null;
+        else setCursor(Cursor.getDefaultCursor());
     }
 }

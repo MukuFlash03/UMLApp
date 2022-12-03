@@ -1,7 +1,8 @@
-package edu.asu.agupt385.cse564.assignment4;
+package edu.asu.agupt385.cse564.assignment4.view;
 
+import edu.asu.agupt385.cse564.assignment4.model.Vertex;
 
-import java.awt.*;
+import java.awt.Graphics;
 
 /**
  * This class is the abstract class for implementing Decorator pattern. The decorators over the
@@ -11,7 +12,7 @@ import java.awt.*;
  *
  * @author Mukul Mahadik
  * @version 1.0
- * */
+ */
 public abstract class PlotDecorator implements PlotComponent {
     private PlotComponent component;
     private Vertex a;
@@ -25,9 +26,17 @@ public abstract class PlotDecorator implements PlotComponent {
         return this;
     }
 
+    public Vertex getVertexA() {
+        return a;
+    }
+
     public PlotDecorator setVertexA(Vertex a) {
         this.a = a;
         return this;
+    }
+
+    public Vertex getVertexB() {
+        return b;
     }
 
     public PlotDecorator setVertexB(Vertex b) {
@@ -35,18 +44,11 @@ public abstract class PlotDecorator implements PlotComponent {
         return this;
     }
 
-    public Vertex getVertexA() {
-        return a;
-    }
-
-    public Vertex getVertexB() {
-        return b;
-    }
-
     /**
      * This function implements operation of a particular child class on basis of the component called.
+     *
      * @param g object for class Graphics
-     * @param 
+     * @param
      */
     @Override
     public void drawLineHead(Graphics g, Vertex a, Vertex b) {

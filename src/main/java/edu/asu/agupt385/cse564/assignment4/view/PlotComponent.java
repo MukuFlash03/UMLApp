@@ -1,7 +1,8 @@
-package edu.asu.agupt385.cse564.assignment4;
+package edu.asu.agupt385.cse564.assignment4.view;
 
+import edu.asu.agupt385.cse564.assignment4.model.Vertex;
 
-import java.awt.*;
+import java.awt.Graphics;
 
 /**
  * This class is the interface and main class for implementing Decorator pattern.
@@ -10,7 +11,7 @@ import java.awt.*;
  *
  * @author Mukul Mahadik
  * @version 1.0
- * */
+ */
 public interface PlotComponent {
     /**
      * This function draws the GUI components for the randomly generated points.
@@ -18,8 +19,9 @@ public interface PlotComponent {
      * 1. Panel showing plotted points and line graph
      * 2. Panel showing plotted points in square shape and line graph
      * 3. Panel showing points with bar and line graph
+     *
      * @param g object for class Graphics
-     * @param 
+     * @param
      */
 
     void drawLineHead(Graphics g, Vertex a, Vertex b);

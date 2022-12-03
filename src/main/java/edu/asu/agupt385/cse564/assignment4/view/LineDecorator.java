@@ -1,6 +1,8 @@
-package edu.asu.agupt385.cse564.assignment4;
+package edu.asu.agupt385.cse564.assignment4.view;
 
-import java.awt.*;
+import edu.asu.agupt385.cse564.assignment4.model.Vertex;
+
+import java.awt.Graphics;
 
 /**
  * This class plots the randomly generated points in the GUI and connects them with the line
@@ -9,13 +11,14 @@ import java.awt.*;
  * @author Shrinkhala Kayastha
  * @author Mukul Mahadik
  * @version 1.0
- * */
+ */
 public class LineDecorator implements PlotComponent {
 
     /**
      * Overrides the method operation in parent class. This function draws the plotted points
      * and connects them with a line graph.
-     * @param g object for class Graphics
+     *
+     * @param g           object for class Graphics
      * @param coordinates arraylist with coordinates of the plotted points
      */
     @Override
@@ -25,6 +28,6 @@ public class LineDecorator implements PlotComponent {
         int x2 = (int) b.center().getX();
         int y2 = (int) b.center().getY();
 
-        g.drawLine(x1, y1, x2, y2);    
+        g.drawLine(x1, y1, x2, y2);
     }
 }

@@ -1,4 +1,4 @@
-package edu.asu.agupt385.cse564.assignment4;
+package edu.asu.agupt385.cse564.assignment4.model;
 
 import java.util.Comparator;
 import java.util.Objects;
